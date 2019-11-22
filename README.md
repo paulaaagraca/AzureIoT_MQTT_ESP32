@@ -21,8 +21,8 @@ $ echo $DDS_ROOT
 ~~~
 
 **3)** Run the entire OpenDDS regression test suite: 
-~~~
-$ bin/auto_run_tests.pl
+~~~console
+foo:$ bin/auto_run_tests.pl
 ~~~
 
 **4)** Installation: 
