@@ -15,7 +15,7 @@ $ cd OpenDDS -3.13.3
 $ ./configure --prefix=usr
 ~~~
 
-**2)** Set environment and check if it was successful : 
+**2)** Set environment and check if it was successful : <a name="environment"></a>
 ~~~sh
 $ source setenv.sh
 $ echo $DDS_ROOT
@@ -63,7 +63,8 @@ $DDS_ROOT/bin/DCPSInfoRepo -o simple.ior
 **3)** Initiate Publisher
 The publisher connects to the DCPSInfoRepo to fnd the location of any subscribers and begins to publish messages as well as write them to the console.
 
-**Open new terminal window**
+- **Open new terminal window**
+- [set environment](#environment) 
 ~~~sh
 $ ./publisher -DCPSInfoRepo file://simple.ior
 ~~~
@@ -71,7 +72,8 @@ $ ./publisher -DCPSInfoRepo file://simple.ior
 **4)** Initiate Subscriber
 Start the subscriber application:
 
-**Open new terminal window**
+- **Open new terminal window**
+- [set environment](#environment) 
 ~~~sh
 $ ./subscriber -DCPSInfoRepo file://simple.ior
 ~~~
