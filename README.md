@@ -10,3 +10,7 @@
 **ESP Project**
 - [ESP Azure IoT SDK](https://github.com/espressif/esp-azure?fbclid=IwAR2gINJAbW_89AL0iq2T_c0TRb_Q0TVUISU9mHSa_gzrqex24haVat85E0s)
 
+**Raspberry Pi Project**
+
+-[Get Started with Microsoft Azure IoT Starter Kit - Raspberry Pi2 and Pi3](https://github.com/Azure-Samples/iot-hub-c-raspberrypi-getstartedkit/blob/master/README.md)
+- [Raspberry Pi, Azure IoT Central](https://dev.to/azure/raspberry-pi-azure-iot-central-and-docker-container-debugging-56hn)
