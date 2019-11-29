@@ -11,6 +11,7 @@
 
 **ESP Project**
 - [ESP Azure IoT SDK](https://github.com/espressif/esp-azure?fbclid=IwAR2gINJAbW_89AL0iq2T_c0TRb_Q0TVUISU9mHSa_gzrqex24haVat85E0s)
+- [ESP32_AzureIoT - Azure IoT Hub library for esp32 devices in Arduino](https://github.com/VSChina/ESP32_AzureIoT_Arduino)
 
 **Raspberry Pi Project**
 
