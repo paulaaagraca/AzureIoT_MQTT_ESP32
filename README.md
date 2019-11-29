@@ -19,4 +19,7 @@
 - [Raspberry Pi, Azure IoT Central](https://dev.to/azure/raspberry-pi-azure-iot-central-and-docker-container-debugging-56hn)
 
 **YOUTUBE guides**
--[Arduino and MQTT sending data to Microsoft Azure](https://www.youtube.com/watch?v=SVfT3cT2rKE&t=371s&ab_channel=BrianWharton)
+
+- [Arduino and MQTT sending data to Microsoft Azure](https://www.youtube.com/watch?v=SVfT3cT2rKE&t=371s&ab_channel=BrianWharton)
+- [Azure IoT Hub Tester](https://www.codeproject.com/Articles/1173356/Azure-IoT-Hub-Tester)
+- [MQTT Connection of the Azure IoT Hub](https://www.opc-router.com/azure-iot-hub-mqtt-connection/#AzureIoTHubMQTTClientConfiguration)
