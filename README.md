@@ -17,3 +17,6 @@
 
 - [Get Started with Microsoft Azure IoT Starter Kit - Raspberry Pi2 and Pi3](https://github.com/Azure-Samples/iot-hub-c-raspberrypi-getstartedkit/blob/master/README.md)
 - [Raspberry Pi, Azure IoT Central](https://dev.to/azure/raspberry-pi-azure-iot-central-and-docker-container-debugging-56hn)
+
+**YOUTUBE guides**
+-[Arduino and MQTT sending data to Microsoft Azure](https://www.youtube.com/watch?v=SVfT3cT2rKE&t=371s&ab_channel=BrianWharton)
