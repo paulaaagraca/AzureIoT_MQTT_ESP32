@@ -20,6 +20,7 @@
 
 **YOUTUBE guides**
 
+-[MQTT Publication with Microsoft Azure*](https://github.com/intel-iot-devkit/up-squared-grove-IoT-dev-kit-arduino-create/blob/master/examples/MqttPubAzure/README.md?fbclid=IwAR1bxSxw0JIXtDuJhlCDTFUfhoGYdaaCzHFHbjsBfHijY-wE4I6QQTx2_kk)
 - [Arduino and MQTT sending data to Microsoft Azure](https://www.youtube.com/watch?v=SVfT3cT2rKE&t=371s&ab_channel=BrianWharton)
 - [Azure IoT Hub Tester](https://www.codeproject.com/Articles/1173356/Azure-IoT-Hub-Tester)
 - [MQTT Connection of the Azure IoT Hub](https://www.opc-router.com/azure-iot-hub-mqtt-connection/#AzureIoTHubMQTTClientConfiguration)
