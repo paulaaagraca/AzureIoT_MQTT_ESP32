@@ -8,6 +8,9 @@
 
 ## Support Materials <a name="materials"></a>
 
+**PubSubClient**
+- [PubSubClient.cpp](https://github.com/knolleary/pubsubclient/blob/master/src/PubSubClient.cpp)
+
 **Azure IoT Workbench**
 - [ESP32 Setup Guide](https://github.com/microsoft/vscode-iot-workbench/blob/master/docs/esp32/esp32-setup.md)
 - [Communicate with your IoT hub using the MQTT protocol](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-mqtt-support)
