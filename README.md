@@ -5,6 +5,7 @@
 3) [Support Materials](#materials)
 
 ## What is going on?
+- C2D is working, with ACK (ESP32 sends feedback to the cloud after receiving)
 
 ## Used Tools
 - 
