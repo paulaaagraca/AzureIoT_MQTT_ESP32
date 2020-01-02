@@ -6,6 +6,7 @@
 
 ## What is going on?
 - C2D is working, with ACK (ESP32 sends feedback to the cloud after receiving)
+- Service Bus for PC : https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions , 
 
 ## Used Tools
 - 
