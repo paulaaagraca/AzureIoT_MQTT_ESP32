@@ -2,6 +2,8 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 'use strict';
+var Client = require('azure-iothub').Client;
+var Message = require('azure-iot-common').Message;
 
 // Connection string for the IoT Hub service
 //
@@ -26,18 +28,57 @@ var printError = function (err) {
   console.log(err.message);
 };
 
+// Client to send messages to devices
+var serviceClient = Client.fromConnectionString(connectionString);
+
+function printResultFor(op) {
+  return function printResult(err, res) {
+    if (err) console.log(op + ' error: ' + err.toString());
+    if (res) console.log(op + ' status: ' + res.constructor.name);
+  };
+}
+
+function receiveFeedback(err, receiver){
+  receiver.on('message', function (msg) {
+    console.log('Feedback message:')
+    console.log(msg.getData().toString('utf-8'));
+  });
+}
+
 // Display the message content - telemetry and properties.
 // - Telemetry is sent in the message body
 // - The device can add arbitrary application properties to the message
 // - IoT Hub adds system properties, such as Device Id, to the message.
 var printMessage = function (message) {
-  console.log('Telemetry received: ');
+  /*console.log('Telemetry received: ');
   console.log(JSON.stringify(message.body));
   console.log('Application properties (set by device): ')
   console.log(JSON.stringify(message.applicationProperties));
   console.log('System properties (set by IoT Hub): ')
   console.log(JSON.stringify(message.annotations));
-  console.log('');
+  console.log('');*/
+  console.log("oi");
+
+  var sender = message.annotations['iothub-connection-device-id'];
+  
+  if(sender == "john"){
+    console.log("Manda-chuva: " + sender);
+    var targetDevice = sender;
+    console.log("Vou reclamar com o " , targetDevice);
+    serviceClient.open(function (err) {
+      if (err) {
+        console.error('Could not connect: ' + err.message);
+      } else {
+        console.log('Service client connected');
+        serviceClient.getFeedbackReceiver(receiveFeedback);
+        var message = new Message('Recebi uma mensagem do ' + sender);
+        message.ack = 'full';
+        message.messageId = "My Message ID";
+        console.log('Sending message: ' + message.getData());
+        serviceClient.send(targetDevice, message, printResultFor('send'));
+      }
+    });
+  }
 };
 
 // Connect to the partitions on the IoT Hub's Event Hubs-compatible endpoint.
