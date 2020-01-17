@@ -36,7 +36,6 @@ static const char* connectionString = EXAMPLE_IOTHUB_CONNECTION_STRING;
 
 static int callbackCounter;
 static char * msgTex="CTOT4rLQV47gUhvZcpPoe8bJIP6SGKE1PXJuUfrEHL8t2x9wmVbTpcxqYtNgTgDTfg9mHMP3Xz8I2r75dEzq6uKgGwf1kRoQlw1hH5keWZOlpH6eFLsHnZWgSOj7a0ZTVBB5K1YCtkKhS7UqrYahIzK8wNkkzOdRWcdFrTFg0OAzSOzlK2y1AUkRB0y9KwQ42Zy0NnEpvTkEoGdQ4RprVThYmbnno8jIVBc1VTumUDwqR0QdgK1Pqytc9JOA3LJ56iToVA4Ka9bLVjA5JfXtd6XuW3IjkK90E3KbVIyNBSKmLGPSTZcmVr5h0TCRncWse1SWBuVEUjERutKi8ovZiG6Pv9kxdlviPLDJNNbCpaAvDlPaUk1SnsvSUmeeIPqUT50cIpkDRREzY4zxph5DEiwXPtvlPTb8v0epPfYgr5gMWG2M1bKyofHamd7HmBRVEccQWk6NRYTycSLG0nvCchqxdnIdJh51jDeNT5aKh0v0gvDIdB3AFB7aBbJwbONYLEkpmHcdmekRKUITA0RqYNT28MCkQht2NmzbVjX9HuEjfS0pGZPJ2Ri1hI1reuFmJljtPkOopKVR2m5qkS4CgF7UyXLFLtAh4IRmdVVeV6FpKH7oH984aZ2z1CFNLcX29b5deIJGkLb6lj7SrugkFElWEde6NzQprdUgbUYoyOPUhDCYqcA2K6HJkktmTZD1KCKGA9pq9aZrhx6W50DXAdQFyy6261DB4jkaZJGq1vDcxqKenewhKyDOZEcvsL4EehVlfgB09Jwj5KjjbVl51A6WwaDrzLi23hylV0aIsOq16xrw4pLSvx4Z5AaJQH64h1NKJTLIou09uZUb562aiFMGUTgG4DvmVYtOCtkPPLJye4GEDZ4w0buI7j0hdokFxq45A6PZ0R74yb3jLulvSXdue8lXxUHiNmVRY4Nl6CEeBM6eDwYLwrpRbnXqZr7ZvNQW9tyrx135oibCdBfsEMDGmQihDneGqzYF6nxuMusuDlpRkDx560zDkDN5ZxF";
-static char propText[1024];
 static bool g_continueRunning;
 time_t sent_time = 0;
 struct timeval t_initial, t_actual;
@@ -157,9 +156,6 @@ void iothub_client_sample_mqtt_run(void)
 
     g_continueRunning = true;
     srand((unsigned int)time(NULL));
-    double avgWindSpeed = 10.0;
-    double minTemperature = 20.0;
-    double minHumidity = 60.0;
 
     callbackCounter = 0;
     int receiveContext = 0;
@@ -176,7 +172,7 @@ void iothub_client_sample_mqtt_run(void)
         }
         else
         {
-            bool traceOn = true;
+            bool traceOn = true; // enables message flow information on serial port
             IoTHubClient_LL_SetOption(iotHubClientHandle, OPTION_LOG_TRACE, &traceOn);
 
             IoTHubClient_LL_SetConnectionStatusCallback(iotHubClientHandle, connection_status_callback, NULL);
@@ -197,8 +193,6 @@ void iothub_client_sample_mqtt_run(void)
 
                 /* Now that we are ready to receive commands, let's send some messages */
                 int iterator = 0;
-                double temperature = 0;
-                double humidity = 0;
                 time_t current_time = 0;
                 do
                 {
@@ -208,8 +202,6 @@ void iothub_client_sample_mqtt_run(void)
                         && iterator <= callbackCounter
                         && (difftime(current_time, sent_time) > ((CONFIG_MESSAGE_INTERVAL_TIME) / 1000)))
                     {
-                        temperature = minTemperature + (rand() % 10);
-                        humidity = minHumidity +  (rand() % 20);
                 
                         if ((message.messageHandle = IoTHubMessage_CreateFromByteArray((const unsigned char*)msgTex, strlen(msgTex))) == NULL)
                         {
@@ -218,12 +210,6 @@ void iothub_client_sample_mqtt_run(void)
                         else
                         {
                             message.messageTrackingId = iterator;
-                            MAP_HANDLE propMap = IoTHubMessage_Properties(message.messageHandle);
-                            (void)sprintf_s(propText, sizeof(propText), temperature > 28 ? "true" : "false");
-                            if (Map_AddOrUpdate(propMap, "temperatureAlert", propText) != MAP_OK)
-                            {
-                                (void)printf("ERROR: Map_AddOrUpdate Failed!\r\n");
-                            }
 
                             if (IoTHubClient_LL_SendEventAsync(iotHubClientHandle, message.messageHandle, SendConfirmationCallback, &message) != IOTHUB_CLIENT_OK)
                             {

@@ -5,7 +5,7 @@
 // CONNECTION information to complete
 #define IOTHUBNAME "sdis-iot"
 #define DEVICEID "john"
-#define PWD "SharedAccessSignature sr=sdis-iot.azure-devices.net%2Fdevices%2Fjohn&sig=giaTcb3qA0V2uETziY9NrvY%2Fs74XzSTK3ThjOhaDYOA%3D&se=1576756351"
+#define PWD "SharedAccessSignature sr=sdis-iot.azure-devices.net%2Fdevices%2Fjohn&sig=GH2ebLSnnBx9OmKKQh77cYm5hRC6kxRaGLW8sI%2FJXrs%3D&se=1579051538"
 
 // computed Host Username and Topic
 #define USERNAME IOTHUBNAME ".azure-devices.net/" DEVICEID "/?api-version=2018-06-30"
@@ -36,6 +36,7 @@ void mqttReconnect(){
             mqtt_client.subscribe(TOPIC);
             Serial.print("subscribing ");
             Serial.println(TOPIC);
+            mqtt_client.publish("devices/john/messages/events", "ola");
         } else {
             Serial.print("Error: failed with state ");
             Serial.println(mqtt_client.state());

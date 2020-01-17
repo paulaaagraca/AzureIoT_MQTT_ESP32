@@ -34,14 +34,14 @@ var serviceClient = Client.fromConnectionString(connectionString);
 function printResultFor(op) {
   return function printResult(err, res) {
     if (err) console.log(op + ' error: ' + err.toString());
-    if (res) console.log(op + ' status: ' + res.constructor.name);
+    //if (res) console.log(op + ' status: ' + res.constructor.name);
   };
 }
 
 function receiveFeedback(err, receiver){
   receiver.on('message', function (msg) {
-    console.log('Feedback message:')
-    console.log(msg.getData().toString('utf-8'));
+    //console.log('Feedback message:')
+    //console.log(msg.getData().toString('utf-8'));
   });
 }
 
@@ -57,11 +57,21 @@ var printMessage = function (message) {
   console.log('System properties (set by IoT Hub): ')
   console.log(JSON.stringify(message.annotations));
   console.log('');*/
-
-  var sender = message.annotations['iothub-connection-device-id'];
   
+  var sender = message.annotations['iothub-connection-device-id'];
+  console.log('Received message from '+JSON.stringify(sender));
+  
+  /*
+   * Publisher-subscriber logic
+   *    Here you can set which devices subscribe to each publishers' topic
+   *    You can use the following function to send messages: sendMessage(sender, <device_ID>);
+  */
   if(sender == "john"){
-    sendMessage(sender, "john");
+    sendMessage(sender, "alice");
+    //sendMessage(sender, "bob");
+    //sendMessage(sender, "sarah");
+    //sendMessage(sender, "sam");
+    //sendMessage(sender, "james");
   }
 };
 
@@ -70,7 +80,7 @@ var sendMessage = function(sender, target, data){
       if (err) {
         console.error('Could not connect: ' + err.message);
       } else {
-        console.log('Service client connected');
+        //console.log('Service client connected');
         serviceClient.getFeedbackReceiver(receiveFeedback);
         var message = new Message("hello");
         message.ack = 'full';

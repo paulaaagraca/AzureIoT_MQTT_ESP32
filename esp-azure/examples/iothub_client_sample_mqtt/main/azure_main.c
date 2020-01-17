@@ -99,7 +99,7 @@ void app_main()
 
     initialise_wifi();
 
-    if ( xTaskCreate(&azure_task, "azure_task", 1024 * 6, NULL, 5, NULL) != pdPASS ) {
+    if ( xTaskCreate(&azure_task, "azure_task", 1024 * 5, NULL, 5, NULL) != pdPASS ) {
         printf("create azure task failed\r\n");
     }
 
