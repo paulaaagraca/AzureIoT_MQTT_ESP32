@@ -57,29 +57,29 @@ var printMessage = function (message) {
   console.log('System properties (set by IoT Hub): ')
   console.log(JSON.stringify(message.annotations));
   console.log('');*/
-  console.log("oi");
 
   var sender = message.annotations['iothub-connection-device-id'];
   
   if(sender == "john"){
-    console.log("Manda-chuva: " + sender);
-    var targetDevice = sender;
-    console.log("Vou reclamar com o " , targetDevice);
+    sendMessage(sender, "john");
+  }
+};
+
+var sendMessage = function(sender, target, data){
     serviceClient.open(function (err) {
       if (err) {
         console.error('Could not connect: ' + err.message);
       } else {
         console.log('Service client connected');
         serviceClient.getFeedbackReceiver(receiveFeedback);
-        var message = new Message('Recebi uma mensagem do ' + sender);
+        var message = new Message("hello");
         message.ack = 'full';
         message.messageId = "My Message ID";
-        console.log('Sending message: ' + message.getData());
-        serviceClient.send(targetDevice, message, printResultFor('send'));
+        console.log('Sending message: ' + message.getData()+" to "+target);
+        serviceClient.send(target, message, printResultFor('send'));
       }
     });
-  }
-};
+}
 
 // Connect to the partitions on the IoT Hub's Event Hubs-compatible endpoint.
 // This example only reads messages sent after this application started.

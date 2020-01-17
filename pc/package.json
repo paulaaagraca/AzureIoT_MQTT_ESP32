@@ -1,0 +1,17 @@
+{
+  "name": "pc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ReadDeviceToCloudMessages.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/event-hubs": "^2.1.4",
+    "azure-event-hubs": "^0.2.11",
+    "azure-iothub": "^1.11.1",
+    "event-hub-client": "^1.0.1"
+  }
+}
