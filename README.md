@@ -1,6 +1,7 @@
 # Publisher-Subscriber MQTT for Azure IoT Hub
 
 1) [Starting Guide](#guide)
+2) [Organization](#org)
 2) [Support Materials](#materials)
 
 ## Starting Guide <a name="guide"></a>
@@ -8,6 +9,12 @@
 The implemented system consists in a **MQTT publisher-subscriber communication system with Azure IoT Hub**.
 
 The [document](https://github.com/paulaaagraca/AzureIoT_MQTT_ESP32/tree/master/docs) serves as a Starting Guide for the developed project in the course Distributed Systems.
+
+## Organization
+
+All files corresponding to the ESP32 implementation are present in [esp-azure](https://github.com/paulaaagraca/AzureIoT_MQTT_ESP32/tree/master/esp-azure). 
+
+[pc](https://github.com/paulaaagraca/AzureIoT_MQTT_ESP32/tree/master/pc) contains all files corresponding to the implemented communication service between the cloud and the ESP32.
 
 ## Support Materials <a name="materials"></a>
 
