@@ -1,14 +1,11 @@
 # Publisher-Subscriber MQTT for Azure IoT Hub
 
-1) [Introduction] (#intro)
-2) [Starting Guide](#guide)
+1) [Starting Guide](#guide)
 2) [Support Materials](#materials)
 
-## Introduction <a name="intro"></a>
-
-The implemented system consists in a MQTT publisher-subscriber communication system with Azure IoT Hub.
-
 ## Starting Guide <a name="guide"></a>
+
+The implemented system consists in a **MQTT publisher-subscriber communication system with Azure IoT Hub**.
 
 The [document](https://github.com/paulaaagraca/AzureIoT_MQTT_ESP32/tree/master/docs) serves as a Starting Guide for the developed project in the course Distributed Systems.
 
