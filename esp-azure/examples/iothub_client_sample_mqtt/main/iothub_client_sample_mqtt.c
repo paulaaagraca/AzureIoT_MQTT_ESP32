@@ -87,7 +87,7 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
     {(void)printf("ERROR MEASURING INITIAL TIME\n");}
 //     (void)printf("Receive Message %ld %ld\n", t_actual.tv_sec, t_actual.tv_usec);
 //    (void)printf("%ld,%ld\n", (t_actual.tv_sec-t_initial.tv_sec), (t_actual.tv_usec-t_initial.tv_usec));
-    (void)printf("%ld\n", (t_actual.tv_sec-t_initial.tv_sec)*1000000 + (t_actual.tv_usec-t_initial.tv_usec));
+    (void)printf("Round-trip time: %ld\n", (t_actual.tv_sec-t_initial.tv_sec)*1000000 + (t_actual.tv_usec-t_initial.tv_usec));
     
     
         if (size == (strlen("quit") * sizeof(char)) && memcmp(buffer, "quit", size) == 0)

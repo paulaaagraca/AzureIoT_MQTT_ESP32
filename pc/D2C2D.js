@@ -16,7 +16,7 @@ var Message = require('azure-iot-common').Message;
 //
 // Using the Azure CLI:
 // az iot hub show-connection-string --hub-name {YourIoTHubName} --policy-name service  --output table
-var connectionString = 'HostName=sdis-iot.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=zyAjYfYzYP06d9P1bP86UgxHXLpuyrFDkhzTMpuc9z0=';
+var connectionString = '<connection-string>';
 
 // Using the Node.js SDK for Azure Event hubs:
 //   https://github.com/Azure/azure-event-hubs-node
@@ -65,17 +65,18 @@ var printMessage = function (message) {
    * Publisher-subscriber logic
    *    Here you can set which devices subscribe to each publishers' topic
    *    You can use the following function to send messages: sendMessage(sender, <device_ID>);
+   *    Information about the received message can be retrieved from the "message" object
   */
   if(sender == "john"){
-    sendMessage(sender, "alice");
-    //sendMessage(sender, "bob");
-    //sendMessage(sender, "sarah");
-    //sendMessage(sender, "sam");
-    //sendMessage(sender, "james");
+    sendMessage("alice");
+    //sendMessage("bob");
+    //sendMessage("sarah");
+    //sendMessage("sam");
+    //sendMessage("james");
   }
 };
 
-var sendMessage = function(sender, target, data){
+var sendMessage = function(target, data){
     serviceClient.open(function (err) {
       if (err) {
         console.error('Could not connect: ' + err.message);
