@@ -1,4 +1,5 @@
 # Publisher-Subscriber MQTT for Azure IoT Hub
+This project builds a IoT prototype that uses a publisher-subcriber messaging pattern to connect sensor nodes. Azure IoT Hub is used as a MQTT broker and the sensor nodes are ESP32 devices.
 
 1) [Starting Guide](#guide)
 2) [Organization](#org)
